@@ -1,5 +1,4 @@
 <script>
-  //import { MdMenu as MenuIcon } from 'react-icons/md';
   import { page } from '$app/stores';
   $: path = $page.url.pathname;
   import { pages } from '$lib/constants';
@@ -7,7 +6,7 @@
 
 
 <nav class='visibility_not-phone nav_h'>
-    <ul > 
+    <ul> 
       {#each pages as aPage}
           <li>
             <a

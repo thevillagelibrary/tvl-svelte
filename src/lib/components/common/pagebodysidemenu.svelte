@@ -8,16 +8,14 @@
     .find((obj) => $page.url.pathname.includes(`/${obj.path}`));
 </script>
 
-<section class='visibility_phone'>
-  <BreadCrumbs />
-</section>
-<section class='pagesidemenu'>
-<article class='visibility_not-phone'>
+<section class='pagenosidemenu'>
+<!-- <article class='visibility_not-phone'>
   {#if (currentMainPage?.subPages)}
   <NavV mainPage={currentMainPage} />
   {/if}
-</article>
-<article class='pagesidemenubody'>
+</article> -->
+<article>
+  <BreadCrumbs />
   <slot />
 </article>
 </section>

@@ -21,3 +21,9 @@
     </section>
   {/if}
 </div>
+
+<style>
+  #breadcrumbs {
+    font-size: var(--step-1)
+  }
+</style>
