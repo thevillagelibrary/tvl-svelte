@@ -3,6 +3,7 @@
   import { page } from '$app/stores';
   $: path = $page.url.pathname;
   import { pages } from '$lib/constants';
+  import MenuIcon from '$lib/assets/icons/menu.svg'
 </script>
 
 
@@ -18,7 +19,8 @@
           </li>
       {/each}
     <li>
-      <a href='#menu_not-phone'>Menu</a>
+      <a href='#menu_not-phone'>
+        <img id="menuicon" src={MenuIcon} alt="Menu Icon" /></a>
     </li>
     <li>
       <a href='/menu'>Phone_Menu</a>
