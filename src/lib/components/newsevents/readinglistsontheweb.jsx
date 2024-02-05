@@ -15,7 +15,7 @@ export default function ReadingListsOnTheWeb() {
         </a>
         <br />
         <br />
-        <div className='divider side-menu'></div>
+        <div class='divider side-menu'></div>
 
         <h2>This site lists all mysteries by an author by publishing date:</h2>
 
@@ -25,7 +25,7 @@ export default function ReadingListsOnTheWeb() {
         </a>
         <br />
         <br />
-        <div className='divider side-menu'></div>
+        <div class='divider side-menu'></div>
 
         <h2>
           A national survey conducted by PBS published this list of

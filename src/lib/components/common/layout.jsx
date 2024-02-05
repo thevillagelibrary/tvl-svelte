@@ -12,7 +12,7 @@ export default function Layout() {
   return (
     <>
       <ScrollRestoration />
-      <ScrollToTop className='.scroll-to-top' />
+      <ScrollToTop class='.scroll-to-top' />
       {pathname !== '/menu' && pathname !=='/upcomingevents' && (
         <header>
           <Hero />

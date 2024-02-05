@@ -40,7 +40,7 @@ export default function Donate() {
           />
         </form>
         <br />
-        <div className='divider sub'></div>
+        <div class='divider sub'></div>
         <br />
         <small>
           Or, write a check to &quot;The Village Library&quot; and deposit it in
@@ -57,7 +57,7 @@ export default function Donate() {
       </article>
       <div />
       <br />
-      <div className='divider full'></div>
+      <div class='divider full'></div>
       <br />
       <article>
         <h2>Buy a Brick Program</h2>

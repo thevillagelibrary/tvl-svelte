@@ -1,1 +1,0 @@
-<h2>Home Page (under construction)</h2>

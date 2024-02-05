@@ -107,7 +107,7 @@ export default function GoogleSheetsData({ name, values }) {
         {categoryList.length > 1 || name === 'YouthSection' ? (
           <h4>{list.category}</h4>
         ) : null}
-        <ul key={uuidv4()} className='gsheets-data'>
+        <ul key={uuidv4()} class='gsheets-data'>
           {lis[index]}
         </ul>
         <br />
@@ -118,7 +118,7 @@ export default function GoogleSheetsData({ name, values }) {
 
   return (
     <>
-      <div className='updated'>
+      <div class='updated'>
         <i>{updated}</i>
       </div>
 

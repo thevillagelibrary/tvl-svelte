@@ -22,7 +22,7 @@ export default function NavHPhoneListItem ({page, index}) {
     <li key={uuidv4()}>
       <NavLink key={uuidv4()}
         to={path}
-        className={({ isActive }) =>
+        class={({ isActive }) =>
           isActive ? 'active' : 'inactive'
         }>
         {icons[index]}
@@ -35,7 +35,7 @@ export default function NavHPhoneListItem ({page, index}) {
 		<li>
       <NavLink
         to={path}
-        className={({ isActive }) =>
+        class={({ isActive }) =>
           isActive ? 'active' : 'inactive'
         }>
         {icons[index]}
@@ -44,7 +44,7 @@ export default function NavHPhoneListItem ({page, index}) {
         <li>
           <NavLink
             to={path}
-            className={({ isActive }) =>
+            class={({ isActive }) =>
               isActive ? 'activesub' : 'inactivesub'
             }>
             {page.name}
@@ -57,7 +57,7 @@ export default function NavHPhoneListItem ({page, index}) {
               <li key={uuidv4()}>
                 <NavLink
                   to={path} 
-                  className={({ isActive }) =>
+                  class={({ isActive }) =>
                     isActive ? 'activesub' : 'inactivesub'
                   }>
                   {subPage.name}

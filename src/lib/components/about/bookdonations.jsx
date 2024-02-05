@@ -27,7 +27,7 @@ export default function BookDonations() {
         available for sale during regular hours of operation, Monthly Bag of
         Book Sales, and our annual Fall and Spring Book Sales:
       </p>
-      <dl className='book-donations'>
+      <dl class='book-donations'>
         <dt>Hardbound current fiction and non-fiction books with jackets</dt>
         <dt>Biographies and autobiographies</dt>
         <dt>Children&apos;s books</dt>
@@ -42,7 +42,7 @@ export default function BookDonations() {
         The following are books and periodicals that we cannot use or even
         accept as they present a disposal problem:
       </p>
-      <dl className='book-donations'>
+      <dl class='book-donations'>
         <dt>Damaged books, which may include:</dt>
         <dd>
           Missing book jackets, covers, or pages; loose bindings; ripped or

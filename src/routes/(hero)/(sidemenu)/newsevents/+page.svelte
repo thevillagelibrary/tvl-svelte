@@ -1,8 +1,7 @@
-import { PageBodySideMenu } from '@/components/common';
-
-export default function NewsEvents() {
-  return (
-    <PageBodySideMenu name={'NewsEvents'}>
+<script>
+  import PageBodySideMenu from '$lib/components/common/pagebodysidemenu.svelte';
+</script>
+    <PageBodySideMenu>
       <h2>
         THE VILLAGE LIBRARY
         <br />
@@ -98,5 +97,3 @@ export default function NewsEvents() {
       <p>Sandy Cooper, President</p>
       <p>2022-2023</p>
     </PageBodySideMenu>
-  );
-}

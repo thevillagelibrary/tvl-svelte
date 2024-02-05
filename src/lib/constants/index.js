@@ -29,7 +29,7 @@ export {
 export const pages = [
   {
     name: 'Home',
-    path: '',
+    path: 'home',
     subPages: [],
   },
   {
