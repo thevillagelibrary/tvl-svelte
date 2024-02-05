@@ -8,7 +8,7 @@
   }
 </script>
 
-<section id='menu_phone'>
+<section>
 	<button class="close" on:click={handleClick}>
 		<img id="backarrow" src={BackArrow} alt="Back Arrow" />
 	</button>
@@ -18,7 +18,6 @@
   <nav>
     <ul> 
       {#each pages as page}
-          <div>
             <li>
               <a href={page.path !== 'home'? `/${page.path}` : '/'}>{page.name}</a>
             </li>
@@ -29,10 +28,9 @@
                   </li>
               {/each}
             {/if}
-          </div>
       {/each}
     </ul>
-  </nav>;
+  </nav>
 </section>
 
 
@@ -40,20 +38,21 @@
 	#backarrow {
 		height: 3em; 
 	}
-  #menu_phone nav > ul li.subpages > a  {
+  ul li.subpages > a  {
     padding-left: 1em;
   }
-  #menu_phone nav > ul {
-    display: block;
+  nav > ul {
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
     margin-left: 2em;
     text-align: left;
   }
-  #menu_phone nav> ul li > a {
+  nav > ul li > a {
     font-size: var(--step-1);
     text-align: left;
   }
-	#menu_phone {
+	section {
 	margin: 0 auto;
 	padding-bottom: 3em;
 	white-space: pre-wrap;

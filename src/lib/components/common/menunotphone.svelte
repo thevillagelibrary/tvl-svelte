@@ -1,5 +1,10 @@
 <script>  
   import { pages } from '$lib/constants';
+  import { afterNavigate, goto} from '$app/navigation'
+  afterNavigate(reroute)
+  function reroute(){
+    console.log('navigating')
+  }
 </script>
 
 
