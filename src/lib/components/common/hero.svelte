@@ -1,5 +1,11 @@
+<script>
+	import MenuIcon from '$lib/assets/icons/menuicon.svg';
+</script>
+
 <section id='hero'>
-  <article></article>
+  <article>
+	<a href="/menu"><img src={MenuIcon} alt='Menu Icon'/></a>
+  </article>
   <article>
     <h1>The Village Library</h1>
     <div>Skidaway Island</div>

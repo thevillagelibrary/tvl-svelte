@@ -1,4 +1,5 @@
 <script>
+  //TODO Check Breadcrumbs classes
   import BreadCrumbs from '$lib/components/common/navbars/breadcrumbs.svelte';
 </script>
 

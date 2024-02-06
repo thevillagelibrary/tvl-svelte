@@ -1,4 +1,5 @@
-<script>  
+<script>
+  //TODO Move CSS to here
 import Facebook from '$lib/assets/images/Facebook.png';
 import InstagramIcon from '$lib/assets/images/Instagram.png';
 </script>

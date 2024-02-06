@@ -14,7 +14,7 @@
 </script>
 
 <div class='pagewithoutsubpages'>
-  <section id='home'>
+  <section id='home' class='vstack'>
     <h2>Hours</h2>
     <small>{hours}</small>
     <div class='divider full'></div>
@@ -63,16 +63,15 @@
   </section>
 </div>
 
-<style>
-    
-    #home :not(:first-child) {
-		margin-top: .5em;
-	}
+<style>    
   #home article {
     display: flex;
     flex-direction: column;
     margin-top: 0;
   }
+  .vstack :not(:first-child) {
+		margin-top: .5em;
+	}
   #home h2 {
     margin-left: auto;
     margin-right: auto;
@@ -91,6 +90,10 @@
     justify-content: space-around;
     margin-left: auto;
     margin-right: auto;
+  }
+  #home section {
+    font-size: var(--step-1);
+    font-weight: 500;
   }
   #home {
     display: flex;

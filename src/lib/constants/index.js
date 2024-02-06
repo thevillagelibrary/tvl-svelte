@@ -12,7 +12,7 @@ const UPCOMINGEVENTS_URL =
   BASE_URL + SHEET_ID + '/values/Upcoming_Events' + KEY;
 const BOARD_URL = BASE_URL + SHEET_ID + '/values/Organization' + KEY;
 const DONATIONS_URL = BASE_URL + SHEET_ID + '/values/Donations' + KEY;
-const NEW_ARRIVALS_URL =
+const NEWARRIVALS_URL =
   BASE_URL +
   SHEET_ID +
   '/values:batchGet?ranges=Just_Off_Rental&ranges=Books&ranges=Youth' +
@@ -22,7 +22,7 @@ export {
   HOME_URL,
   BOARD_URL,
   UPCOMINGEVENTS_URL,
-  NEW_ARRIVALS_URL,
+  NEWARRIVALS_URL,
   DONATIONS_URL,
 };
 

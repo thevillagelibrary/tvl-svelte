@@ -1,12 +1,10 @@
-import { useLoaderData } from 'react-router-dom';
-import { GoogleSheetsData, PageBodySideMenu } from '@/components/common';
+<script>
+  export let data;
+  const values = data.items.values;
+  import GoogleSheetsData from '$lib/components/common/googlesheetsdata.svelte';
+  import PageBody from '$lib/components/common/pagebody.svelte';
+</script>
 
-export default function RecentDonors() {
-  const data = useLoaderData();
-  const values = data.values;
-  return (
-    <PageBodySideMenu name='RecentDonors'>
-      <GoogleSheetsData name={'RecentDonors'} values={values} />
-    </PageBodySideMenu>
-  );
-}
+<PageBody>
+  <GoogleSheetsData name={'RecentDonors'} values={values} />
+</PageBody>
