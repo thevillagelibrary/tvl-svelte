@@ -18,7 +18,7 @@
 </script>
 
 
-<nav class='visibility_not-phone nav_h'>
+<nav>
   <ul>
       {#each pages as aPage}
        {#if (aPage.subPages.length > 0)}
@@ -78,7 +78,9 @@
 }
 
 .dropbtn.active,
-.dropbtn:hover {  
+.dropbtn:hover,
+nav > ul li > a.active,
+nav > ul li > a:hover {  
   background: var(--color-secondary);
   border: 2px solid var(--color-primary);
   border-radius: 1em;
@@ -131,4 +133,77 @@
 .dropdown:hover .dropbtn {
   background-color: var(--color-secondary);
   color: var(--color-black);}
+  
+nav {
+  background-color: var(--background-white);
+  display: block;
+}
+
+nav > li > a {
+  padding: 0;
+}
+nav > li {
+  margin-bottom: 0;
+}
+nav > ul li > a {
+  line-height: 1.5em;
+  padding: 0 0.5em;
+  vertical-align: center;
+}
+
+nav > ul li > a > svg {
+  padding-top: 0.5em;
+}
+nav > ul li > a {
+  box-sizing: border-box;
+  color: var(--color-black);
+  display: block;
+  font-family: var(--font-sans-serif);
+  font-size: var(--step--2);
+  font-weight: 700;
+  height: auto;
+  margin-top: 0;
+  outline: 0;
+  overflow-wrap: break-word;
+  text-align: center;
+  text-decoration: none;
+  text-size-adjust: 100%;
+  width: fit-content;
+}
+nav > ul li > a.active {
+  background: var(--color-secondary);
+  color: var(--color-black);
+  text-align: center;
+  width: inherit;
+}
+nav > ul li > a.inactive {
+  background: var(--background-white);
+  color: var(--color-black);
+  width: inherit;
+}
+nav > ul {
+  height: fit-content;
+}
+nav > ul {
+  background: var(--background-white);
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0.625em;
+  padding: 0;
+}
+nav > ul {
+  height: fit-content;
+  margin: 0.625em 0;
+}
+nav li {
+  display: inline-block;
+}
+nav > ul li > a:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-black);
+}
 </style>

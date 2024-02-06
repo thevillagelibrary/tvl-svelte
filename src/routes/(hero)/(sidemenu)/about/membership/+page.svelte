@@ -1,8 +1,8 @@
-import { PageBodySideMenu } from '@/components/common';
+<script>
+  import PageBodySideMenu from '$lib/components/common/pagebodysidemenu.svelte';
+</script>
 
-export default function Membership() {
-  return (
-    <PageBodySideMenu name={'Membership'}>
+    <PageBodySideMenu>
       <p>
         Membership in The Village Library is open to anyone. It will cost only
         $20 for a family to join. After that, the annual dues are only $20 per
@@ -30,5 +30,3 @@ export default function Membership() {
         can create email can learn our system.
       </p>
     </PageBodySideMenu>
-  );
-}

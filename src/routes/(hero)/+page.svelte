@@ -1,13 +1,13 @@
 <script>
   import { browser } from '$app/environment';
   export let data;
-  import {UpcomingEventsLinks} from '$lib/components';
-  import { getFutureEvents } from '$lib/components';
+  import getFutureEvents from '$lib/utils/getfutureevents'
   const hoursData = data.items.valueRanges[0];
   const hours = hoursData.values[2][1];
   const upcomingEventsData = data.items.valueRanges[1];
   const events = upcomingEventsData.values;
   const futureEvents = getFutureEvents(events);
+  const futureEventCount = futureEvents.length;
   if (browser) {
     localStorage.setItem('futureEvents', JSON.stringify(futureEvents))
   }  
@@ -39,13 +39,33 @@
       </article>
     </section>
     <article>
-      <UpcomingEventsLinks {futureEvents} />
+      {#if (futureEventCount > 0)}
+      <br />
+      <div class='divider full'></div>
+      <h2>Upcoming Events</h2>
+      <a href='/upcomingevents'>
+        Click here for details.
+      </a>
+      <dl>
+        {#each futureEvents as event, index}
+          <div>
+            <dt>
+              <h3>{event[3]}</h3>
+            </dt>
+            <dd>
+              {event[5]}, {event[2]}
+            </dd>
+          </div>
+          {/each}
+      </dl>
+      {/if}
     </article>
   </section>
 </div>
 
-<style>  
-  #home :not(:first-child) {
+<style>
+    
+    #home :not(:first-child) {
 		margin-top: .5em;
 	}
   #home article {
@@ -79,4 +99,15 @@
     overflow-y: hidden;
     text-align: center;
   }
+  dd {
+				margin: 0 1em 0 1em;
+				text-align: center;
+			}
+  dl {
+    font-size: var(--step-1);
+    margin-bottom: 0.625em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+	}
 </style>
