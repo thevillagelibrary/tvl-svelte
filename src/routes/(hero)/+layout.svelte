@@ -1,14 +1,13 @@
 <script>
 	import Hero from '$lib/components/common/hero.svelte';
 	import Footer from '$lib/components/common/footer.svelte';
-	import NavHNotPhone from '$lib/components/common/navbars/navhnotphone.svelte';
-	import MenuNotPhone from '$lib/components/common/menunotphone.svelte';
+	import NavBar from '$lib/components/common/navbars/navbar.svelte';
 </script>
 
 <header>
 	<Hero />
 	<div id="new-wing"></div>
-	<NavHNotPhone />
+	<NavBar />
 </header>
 
 <main>
@@ -17,7 +16,6 @@
 <footer>
 	<Footer />
 </footer>
-<MenuNotPhone />
 
 <style>
 	#new-wing {

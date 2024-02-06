@@ -1,5 +1,5 @@
 import { Link, useLoaderData } from 'react-router-dom';
-import { GoogleSheetsData, PageBodyNoSideMenu } from '@/components/common';
+import { GoogleSheetsData, PageBodywithoutsubpages } from '@/components/common';
 
 export default function NewArrivals() {
   const data = useLoaderData();
@@ -9,7 +9,7 @@ export default function NewArrivals() {
   }
 
   return (
-    <PageBodyNoSideMenu name={'NewArrivals'}>
+    <PageBodywithoutsubpages name={'NewArrivals'}>
       <section id='new-arrivals'>
         <article>
           <Link to='/newarrivals#just-off-rental'>Just Off Rental</Link>
@@ -31,6 +31,6 @@ export default function NewArrivals() {
         <h2 id='youth-section'>Youth Section</h2>
         <GoogleSheetsData name={'YouthSection'} values={values[2]} /> */}
       </section>
-    </PageBodyNoSideMenu>
+    </PageBodywithoutsubpages>
   );
 }

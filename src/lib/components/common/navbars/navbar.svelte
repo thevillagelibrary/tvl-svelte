@@ -3,7 +3,18 @@
   import { goto } from '$app/navigation';
   $: path = $page.url.pathname;
   import { pages } from '$lib/constants';
-  import MenuIcon from '$lib/assets/icons/menu.svg'
+  import homeIcon from '$lib/assets/icons/homeicon.svg'
+  import aboutIcon from '$lib/assets/icons/abouticon.svg'
+  import newseventsIcon from '$lib/assets/icons/newseventsicon.svg'
+  import newarrivalsIcon from '$lib/assets/icons/newarrivalsicon.svg'
+  import donateIcon from '$lib/assets/icons/donateicon.svg'
+  const icons = {
+    home: homeIcon,
+    about: aboutIcon,
+    newsevents: newseventsIcon,
+    newarrivals:newarrivalsIcon,
+    donate: donateIcon
+  }
 </script>
 
 
@@ -16,7 +27,7 @@
               <button
                 on:click={() => goto(`/${aPage.path}`)}
                 class={path === '/' ? aPage.path === 'home' ? 'active dropbtn' : ' dropbtn' : path.includes(aPage.path) ? 'active dropbtn' : ' dropbtn'}>
-                {aPage.name}
+                <img src={icons[aPage.path]} alt={`${aPage.name} Icon`} />{aPage.name}
               </button>
                 <div id={aPage.path} class='dropdown-content'>
                   <a href={`/${aPage.path}`}>{aPage.name}</a>
@@ -32,18 +43,11 @@
           <a
             href={aPage.path !== 'home'? `/${aPage.path}` : '/'}
             class={path === '/' ? aPage.path === 'home' ? 'active' : '' : path.includes(aPage.path) ? 'active' : ''}>
-            {aPage.name}
+            <img src={icons[aPage.path]} alt={`${aPage.name} Icon`} />{aPage.name}
           </a>
         </li>
         {/if}
       {/each}
-    <li>
-      <a href='#menu_not-phone'>
-        <img id="menuicon" src={MenuIcon} alt="Menu Icon" /></a>
-    </li>
-    <li>
-      <a href='/menu'>Phone_Menu</a>
-    </li>
   </ul>
 </nav>
 
@@ -73,8 +77,11 @@
       width: fit-content; 
 }
 
-.dropbtn.active {  
+.dropbtn.active,
+.dropbtn:hover {  
   background: var(--color-secondary);
+  border: 2px solid var(--color-primary);
+  border-radius: 1em;
   color: var(--color-black);
   text-align: center;
   width: inherit;
@@ -87,7 +94,9 @@
   width: fit-content;
 }
 .dropdown-content { 
-  background-color: var(--color-black);
+  border: 2px solid var(--color-secondary);
+  border-radius: 1em;
+  background-color: var(--color-primary);
   display: none;
   opacity: 1;
   position: absolute;
@@ -100,12 +109,12 @@
 }
 
 #newsevents {
-  left: -200%;
+  left: -225%;
   min-width: 550%;  
 }
 
 #donate {
-  left: -80%;
+  left: -72%;
   min-width: 250%
 }
 

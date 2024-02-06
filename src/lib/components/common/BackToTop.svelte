@@ -23,6 +23,12 @@
     }
   </script>
   
+  <svelte:window on:scroll={handleOnScroll} />
+  
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <div id="backToTop" on:click={goTop} class:hidden></div>
+  
   <style>
 
     #backToTop {
@@ -61,10 +67,4 @@
 	background:var(--heroColor);
 }
   </style>
-  
-  <svelte:window on:scroll={handleOnScroll} />
-  
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div id="backToTop" on:click={goTop} class:hidden></div>
   
