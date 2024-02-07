@@ -20,6 +20,6 @@
 	<br />
 	<a href="https://www.landings.org">The Landings Association</a><br />
 	<a href="https://thelandings.com/golf-and-athletic-club">
-		The Landings Golf and Athletic Club
+		The Landings Golf & Athletic Club
 	</a><br /><br />
 </PageBody>
