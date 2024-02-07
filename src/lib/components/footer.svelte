@@ -38,7 +38,7 @@ import InstagramIcon from '$lib/assets/images/Instagram.png';
   </a>
 </section>
 <section>
-  <a href='mailto:thevillagelibrary.inc@gmail.com'>
+  <a href='mailto:thevillagelibrary.org@gmail.com'>
     Contact our Webmaster
   </a>
 </section>
