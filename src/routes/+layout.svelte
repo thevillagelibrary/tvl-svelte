@@ -1,5 +1,5 @@
 <script>
-    import BackToTop from '$lib/components/common/backtotop.svelte'
+	import BackToTop from '$lib/components/backtotop.svelte';
 </script>
 
 <slot />

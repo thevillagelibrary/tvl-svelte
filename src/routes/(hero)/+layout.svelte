@@ -1,7 +1,7 @@
 <script>
-	import Hero from '$lib/components/common/hero.svelte';
-	import Footer from '$lib/components/common/footer.svelte';
-	import NavBar from '$lib/components/common/navbars/navbar.svelte';
+	import Hero from '$lib/components/hero.svelte';
+	import Footer from '$lib/components/footer.svelte';
+	import NavBar from '$lib/components/navbar.svelte';
 </script>
 
 <header>
