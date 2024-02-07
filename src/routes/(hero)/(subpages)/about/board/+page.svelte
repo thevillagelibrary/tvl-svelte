@@ -1,8 +1,8 @@
 <script>
 	export let data;
 	import PageBody from '$lib/components/pagebody.svelte';
-	const organization = data.items.values;
-	organization.splice(0, 1);
+	const organizationValues = data.items.values;
+	const organization = organizationValues.toSpliced(0, 2);
 </script>
 
 <PageBody>
