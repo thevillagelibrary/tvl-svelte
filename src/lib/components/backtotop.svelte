@@ -1,4 +1,6 @@
 <script>
+    import BackToTop from '$lib/assets/icons/backtotop.svg'
+    import BackArrow from '$lib/assets/icons/backarrow.svg'
     export let showOnPx = 150;
     let hidden = true;
   
@@ -27,44 +29,32 @@
   
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div id="backToTop" on:click={goTop} class:hidden></div>
+  <button on:click={goTop} class:hidden><svg width="28" height="28" fill="black" viewBox="0 0 256 256"><path d="M222.138,91.475l-89.6-89.6c-2.5-2.5-6.551-2.5-9.051,0l-89.6,89.6c-2.5,2.5-2.5,6.551,0,9.051s6.744,2.5,9.244,0L122,21.85  V249.6c0,3.535,2.466,6.4,6,6.4s6-2.865,6-6.4V21.85l78.881,78.676c1.25,1.25,2.992,1.875,4.629,1.875s3.326-0.625,4.576-1.875  C224.586,98.025,224.638,93.975,222.138,91.475z"></path></svg></button>
   
   <style>
 
-    #backToTop {
-	display:block;
-	position:sticky;
-	z-index:600;
-	bottom:0;
-	width:4rem;
-	height:4rem;
-	padding-bottom:1rem;
-	margin:-3.5rem 0 0 auto;
-	opacity:0.6;
-	transition:opacity 0.3s;
+  button {  
+    background-color: white;
+    right: 40px;
+    bottom: 0.1em;
+    position: fixed;
+    z-index: 2;
+    cursor: pointer;
+    border-radius: 7px;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 9px 25px 0 rgba(132, 128, 177, 0.28);
+    border: none;
 }
 
-#backToTop.hidden {
+button.hidden {
 	opacity:0;
     visibility: hidden;
 }
 
-#backToTop:not(.hidden):focus,
-#backToTop:not(.hidden):hover {
+button:not(.hidden):focus,
+button:not(.hidden):hover {
 	opacity:1;
-}
-
-#backToTop:after {
-	content:"^";
-	position:relative;
-	display:block;
-	width:2.5rem;
-	height:2.5rem;
-	text-align:center;
-	font-size: 4rem;
-	border-radius:50%;
-	color:var(--heroBgColor);
-	background:var(--heroColor);
 }
   </style>
   

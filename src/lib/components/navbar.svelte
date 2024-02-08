@@ -1,193 +1,212 @@
 <script>
-  import { page } from '$app/stores';
-  import { goto } from '$app/navigation';
-  $: path = $page.url.pathname;
-  import { pages } from '$lib/constants';
-  import homeIcon from '$lib/assets/icons/homeicon.svg'
-  import aboutIcon from '$lib/assets/icons/abouticon.svg'
-  import newseventsIcon from '$lib/assets/icons/newseventsicon.svg'
-  import newarrivalsIcon from '$lib/assets/icons/newarrivalsicon.svg'
-  import donateIcon from '$lib/assets/icons/donateicon.svg'
-  const icons = {
-    home: homeIcon,
-    about: aboutIcon,
-    newsevents: newseventsIcon,
-    newarrivals:newarrivalsIcon,
-    donate: donateIcon
-  }
+	import { page } from '$app/stores';
+	$: path = $page.url.pathname;
+	import { pages } from '$lib/constants';
+	import homeIcon from '$lib/assets/icons/homeicon.svg';
+	import aboutIcon from '$lib/assets/icons/abouticon.svg';
+	import newseventsIcon from '$lib/assets/icons/newseventsicon.svg';
+	import newarrivalsIcon from '$lib/assets/icons/newarrivalsicon.svg';
+	import donateIcon from '$lib/assets/icons/donateicon.svg';
+	const icons = {
+		home: homeIcon,
+		about: aboutIcon,
+		newsevents: newseventsIcon,
+		newarrivals: newarrivalsIcon,
+		donate: donateIcon
+	};
 </script>
 
-
 <nav>
-  <ul>
-      {#each pages as aPage}
-       {#if (aPage.subPages.length > 0)}
-          <li>
-            <div class='dropdown'>
-              <button
-                on:click={() => goto(`/${aPage.path}`)}
-                class={path === '/' ? aPage.path === 'home' ? 'active dropbtn' : ' dropbtn' : path.includes(aPage.path) ? 'active dropbtn' : ' dropbtn'}>
-                <img src={icons[aPage.path]} alt={`${aPage.name} Icon`} />{aPage.name}
-              </button>
-                <div id={aPage.path} class='dropdown-content'>
-                  <a href={`/${aPage.path}`}>{aPage.name}</a>
-                  <div class='divider'></div>
-                  {#each aPage.subPages as subPage}
-                      <a href={`/${aPage.path}/${subPage.path}`}>{subPage.name}</a>
-                  {/each}
-                </div>
-            </div>
-          </li>
-        {:else}
-        <li>
-          <a
-            href={aPage.path !== 'home'? `/${aPage.path}` : '/'}
-            class={path === '/' ? aPage.path === 'home' ? 'active' : '' : path.includes(aPage.path) ? 'active' : ''}>
-            <img src={icons[aPage.path]} alt={`${aPage.name} Icon`} />{aPage.name}
-          </a>
-        </li>
-        {/if}
-      {/each}
-  </ul>
+	<ul>
+		{#each pages as aPage}
+			{#if aPage.subPages.length > 0}
+				<li>
+					<a
+						href={`/${aPage.path}`}
+						class={path === '/'
+							? aPage.path === 'home'
+								? 'active'
+								: 'inactive'
+							: path.includes(aPage.path)
+								? 'activesub'
+								: 'inactivesub'}
+					>
+						<img src={icons[aPage.path]} alt={`${aPage.name} Icon`} />{aPage.name}
+					</a>
+					<ul id={aPage.path}>
+						<li><a href={`/${aPage.path}`} 
+              class={path === '/'
+                ? aPage.path === 'home'
+                  ? 'active'
+                  : 'inactive'
+                : path.includes(aPage.path)
+                  ? 'activesub'
+                  : 'inactivesub'}>{aPage.name}</a></li>
+						{#each aPage.subPages as subPage}
+							<li>
+								<a href={`/${aPage.path}/${subPage.path}`}
+                  class={path.includes(subPage.path)
+                    ? 'activesub'
+                    : 'inactivesub'}>{subPage.name}</a>
+							</li>
+						{/each}
+					</ul>
+				</li>
+			{:else}
+				<li>
+					<a
+						href={aPage.path !== 'home' ? `/${aPage.path}` : '/'}
+						class={path === '/'
+							? aPage.path === 'home'
+								? 'active'
+								: 'inactive'
+							: path.includes(aPage.path)
+								? 'active'
+								: 'inactive'}
+					>
+						<img src={icons[aPage.path]} alt={`${aPage.name} Icon`} />{aPage.name}
+					</a>
+				</li>
+			{/if}
+		{/each}
+	</ul>
 </nav>
 
 <style>
-  
+	nav {
+		background-color: var(--background-white);
+		display: block;
+		height: fit-content;
+		position: relative;
+		z-index: 999;
+	}
+	nav > ul li > a:hover {
+		background-color: var(--color-secondary);
+		color: var(--color-black);
+	}
+	nav > ul li > a {
+		color: var(--color-black);
+		display: block;
+		text-align: left;
+		text-decoration: none;
+	}
+	nav > ul li > a.active {
+		background: var(--color-secondary);
+		color: var(--color-black);
+		text-align: left;
+		width: inherit;
+	}
+	nav > ul li > a.activesub {
+		background: var(--color-secondary);
+		color: var(--color-black);
+		text-align: center;
+		width: inherit;
+	}
+	nav > ul li > a.inactive {
+		background: var(--background-white);
+		color: var(--color-black);
+	}
+	nav > ul li > a.inactive:hover {
+		background: var(--color-secondary);
+		color: var(--color-white);
+	}
+	nav > ul li > a.inactivesub:hover {
+		background: var(--color-secondary);
+		color: var(--color-black);
+		text-align: center;
+	}
+	nav > ul li {
+		box-sizing: border-box;
+		color: var(--color-black);
+		display: block;
+		font-family: var(--font-sans-serif);
+		font-weight: 700;
+		height: auto;
+		line-height: 1.5em;
+		margin-top: 0;
+		outline: 0;
+		overflow-wrap: break-word;
+		text-align: center;
+		text-decoration: none;
+		text-size-adjust: 100%;
+		width: fit-content;
+	}
+	nav > ul > li > a > img {
+		padding-top: 0.25em;
+	}
+	nav > ul > li {
+		display: block;
+	}
+	nav > ul > li > a {
+		padding: 0 0.3125em;
+	}
+	nav > ul > li > ul a {
+		color: var(--color-white);
+	}
+	nav > ul > li > ul > li > a {
+		color: var(--color-white);
+	}
+	nav > ul > li > ul li a:hover {
+		text-align: left;
+		width: inherit;
+	}
+	nav > ul {
+		align-items: baseline;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: row;
+		font-family: var(--font-sans-serif);
+		font-size: var(--step-1);
+		gap: 0.5em;
+		height: fit-content;
+		justify-content: center;
+		line-height: 1.5em;
+		list-style-type: none;
+		margin: 0.625em 0 0 0;
+		vertical-align: center;
+		width: 100%;
+	}
+	nav li {
+		display: inline-block;
+	}
+	nav li:hover ul li {
+		width: 100%;
+	}
+	nav ul ul {
+		background-color: gray;
+		color: var(--color-white);
+		display: none;
+		position: absolute;
+		top: 100%;
+		width: fit-content;
+	}
+  nav li:hover  ul {
+    display: block;
+  }
 
-/* Dropdown styles */
+	nav ul ul li a:focus {
+		background-color: var(--color-secondary);
+	}
+	nav ul ul li a {
+		border: 1px solid white;
+		font-size: var(--step--2);
+		font-weight: normal;
+		padding: 0 0.5em;
+		text-align: center;
+	}
+	nav ul ul li:first-of-type {
+		border-bottom: 4px solid var(--color-primary);
+	}
 
-.dropbtn {
-      background-color: var(--background-white);
-      border: 0;
-      border-radius: 0;
-      cursor: pointer;
-      box-sizing: border-box;
-      color: var(--color-black);
-      display: block;
-      font-family: var(--font-sans-serif);
-      font-size: var(--step--2);
-      font-weight: 700;
-      height: auto;
-      margin-top: 0;
-      outline: 0;
-      overflow-wrap: break-word;
-      text-align: center;
-      text-decoration: none;
-      text-size-adjust: 100%;
-      width: fit-content; 
-}
+	#about {
+    left: 15%;
+	}
 
-.dropbtn.active,
-.dropbtn:hover,
-nav > ul li > a.active,
-nav > ul li > a:hover {  
-  background: var(--color-secondary);
-  border: 2px solid var(--color-primary);
-  border-radius: 1em;
-  color: var(--color-black);
-  text-align: center;
-  width: inherit;
-}
+	#newsevents {
+		left: 25%;
+	}
 
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-  width: fit-content;
-}
-.dropdown-content { 
-  border: 2px solid var(--color-secondary);
-  border-radius: 1em;
-  background-color: var(--color-primary);
-  display: none;
-  opacity: 1;
-  position: absolute;
-  z-index: 2;
-}
-
-#about {
-  left: -125%;
-  min-width: 350%;
-}
-
-#newsevents {
-  left: -225%;
-  min-width: 550%;  
-}
-
-#donate {
-  left: -72%;
-  min-width: 250%
-}
-
-.dropdown-content a {
-  color: var(--color-white);
-  display: block;
-  text-decoration: none;
-}
-
-.dropdown-content a:hover {color: var(--color-black); background-color: var(--color-secondary);}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {
-  background-color: var(--color-secondary);
-  color: var(--color-black);}
-  
-nav {
-  background-color: var(--background-white);
-  display: block;
-}
-nav > ul li > a {
-  line-height: 1.5em;
-  padding: 0 0.5em;
-  vertical-align: center;
-}
-nav > ul li > a {
-  box-sizing: border-box;
-  color: var(--color-black);
-  display: block;
-  font-family: var(--font-sans-serif);
-  font-size: var(--step--2);
-  font-weight: 700;
-  height: auto;
-  margin-top: 0;
-  outline: 0;
-  overflow-wrap: break-word;
-  text-align: center;
-  text-decoration: none;
-  text-size-adjust: 100%;
-  width: fit-content;
-}
-nav > ul li > a.active {
-  background: var(--color-secondary);
-  color: var(--color-black);
-  text-align: center;
-  width: inherit;
-}
-nav > ul {
-  height: fit-content;
-}
-nav > ul {
-  background: var(--background-white);
-  display: flex;
-  flex-direction: row;
-  gap: 1em;
-  align-items: center;
-  justify-content: center;
-  list-style-type: none;
-  margin: 0.625em;
-  padding: 0;
-}
-nav > ul {
-  height: fit-content;
-  margin: 0.625em 0;
-}
-nav li {
-  display: inline-block;
-}
-nav > ul li > a:hover {
-  background-color: var(--color-secondary);
-  color: var(--color-black);
-}
+	#donate {
+		left: 76%;
+	}
 </style>

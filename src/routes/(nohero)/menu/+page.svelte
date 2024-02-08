@@ -36,7 +36,7 @@
 
 <style>
 	#backarrow {
-		height: 3em; 
+		height: 4em; 
 	}
   ul li.subpages > a  {
     padding-left: 1em;
