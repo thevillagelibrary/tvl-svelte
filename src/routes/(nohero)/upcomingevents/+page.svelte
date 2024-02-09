@@ -17,8 +17,6 @@
 	];
 	let poster;
 	let altText;
-	//TODO Where did I get the close icon in tlcgolf-svelte
-	//import { MdArrowBack as Close } from 'react-icons/md';
 
 	function handleClick(event) {
 		event.preventDefault();

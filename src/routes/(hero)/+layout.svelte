@@ -13,9 +13,7 @@
 <main>
 	<slot />
 </main>
-<footer>
-	<Footer />
-</footer>
+<Footer />
 
 <style>
 	#new-wing {

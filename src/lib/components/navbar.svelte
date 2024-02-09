@@ -1,6 +1,9 @@
 <script>
 	import { page } from '$app/stores';
-	$: path = $page.url.pathname;
+	import { browser } from '$app/environment'
+  	import { invalidateAll, afterNavigate } from '$app/navigation';
+	$: path = $page.url.pathname;  
+  	if (browser) afterNavigate(invalidateAll());
 	import { pages } from '$lib/constants';
 	import homeIcon from '$lib/assets/icons/homeicon.svg';
 	import aboutIcon from '$lib/assets/icons/abouticon.svg';
@@ -20,26 +23,18 @@
 	<ul>
 		{#each pages as aPage}
 			{#if aPage.subPages.length > 0}
-				<li>
+				<li class='linkWithSubpages'>
 					<a
 						href={`/${aPage.path}`}
-						class={path === '/'
-							? aPage.path === 'home'
+						class={path.includes(aPage.path)
 								? 'active'
-								: 'inactive'
-							: path.includes(aPage.path)
-								? 'activesub'
-								: 'inactivesub'}
+								: 'inactive'}
 					>
 						<img src={icons[aPage.path]} alt={`${aPage.name} Icon`} />{aPage.name}
 					</a>
-					<ul id={aPage.path}>
+					<ul class='dropdown'>
 						<li><a href={`/${aPage.path}`} 
-              class={path === '/'
-                ? aPage.path === 'home'
-                  ? 'active'
-                  : 'inactive'
-                : path.includes(aPage.path)
+              class={path.includes(aPage.path)
                   ? 'activesub'
                   : 'inactivesub'}>{aPage.name}</a></li>
 						{#each aPage.subPages as subPage}
@@ -73,6 +68,10 @@
 </nav>
 
 <style>
+  a {
+    font-size: var(--step--2);
+
+  }
 	nav {
 		background-color: var(--background-white);
 		display: block;
@@ -80,7 +79,7 @@
 		position: relative;
 		z-index: 999;
 	}
-	nav > ul li > a:hover {
+	nav > ul li > a:hover img{
 		background-color: var(--color-secondary);
 		color: var(--color-black);
 	}
@@ -90,11 +89,13 @@
 		text-align: left;
 		text-decoration: none;
 	}
-	nav > ul li > a.active {
-		background: var(--color-secondary);
-		color: var(--color-black);
-		text-align: left;
-		width: inherit;
+	nav > ul li > a.active > img,
+  nav > ul li > a:hover > img { 
+  background: var(--color-secondary);
+  border: 2px solid var(--color-primary);
+  color: var(--color-black);
+  text-align: center;
+  width: inherit;
 	}
 	nav > ul li > a.activesub {
 		background: var(--color-secondary);
@@ -106,9 +107,9 @@
 		background: var(--background-white);
 		color: var(--color-black);
 	}
-	nav > ul li > a.inactive:hover {
+	nav > ul li > a.inactive:hover img {
 		background: var(--color-secondary);
-		color: var(--color-white);
+		color: var(--color-black);
 	}
 	nav > ul li > a.inactivesub:hover {
 		background: var(--color-secondary);
@@ -173,14 +174,14 @@
 		width: 100%;
 	}
 	nav ul ul {
-		background-color: gray;
+		background-color: var(--color-primary);
 		color: var(--color-white);
 		display: none;
 		position: absolute;
 		top: 100%;
 		width: fit-content;
 	}
-  nav li:hover  ul {
+  nav li:hover  .dropdown {
     display: block;
   }
 
@@ -188,25 +189,25 @@
 		background-color: var(--color-secondary);
 	}
 	nav ul ul li a {
-		border: 1px solid white;
 		font-size: var(--step--2);
 		font-weight: normal;
 		padding: 0 0.5em;
 		text-align: center;
 	}
 	nav ul ul li:first-of-type {
-		border-bottom: 4px solid var(--color-primary);
+		border-bottom: 4px solid var(--color-black);
 	}
-
-	#about {
-    left: 15%;
-	}
-
-	#newsevents {
-		left: 25%;
-	}
-
-	#donate {
-		left: 76%;
-	}
+  .linkWithSubpages {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+.dropdown { 
+  border: 2px solid var(--color-secondary);
+  background-color: var(--color-primary);
+  display: none;
+  opacity: 1;
+  position: absolute;
+  z-index: 2;
+}
 </style>

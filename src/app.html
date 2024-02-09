@@ -135,9 +135,6 @@
 					font-size: var(--step-0)
 				}
 				footer {
-					flex-direction: row;
-				}
-				footer {
 					gap: 1em;
 				}
 
@@ -155,9 +152,6 @@
 			}
 			/* tablet portrait up 600px */
 			@media screen and (min-width: 37.5em) {
-				footer {
-					flex-direction: row;
-				}
 
 				.pagewithsubpagesbody {
 					margin: 0 0 0 0.625em;
@@ -206,7 +200,6 @@
 				text-align: center;
 			}
 			figcaption {
-				border-top: 1px solid #00bcd4;
 				font-family: var(--font-sans-serif);
 				font-size: var(--step-1);
 				font-weight: bold;
@@ -215,42 +208,8 @@
 				text-align: center;
 			}
 			figure {
+				border-top: 1px solid #00bcd4;
 				margin: 1em 0;
-			}
-			footer :nth-child(2) {
-				display: flex;
-				flex-direction: column;
-			}
-			footer a {
-				color: var(--color-white);
-			}
-			footer a {
-				font-size: var(--step--1);
-				margin: 0;
-			}
-			footer a:hover {
-				color: var(--color-link-hover);
-			}
-			footer address {
-				font-size: var(--step--1);
-			}
-			footer article {
-				display: flex;
-				flex-direction: row;
-				gap: 1em;
-				height: fit-content;
-			}
-			footer {
-				background-color: var(--color-tertiary);
-				color: var(--color-white);
-				display: flex;
-				flex-shrink: 0;
-				font-size: var(--step--3);
-				justify-content: space-around;
-				line-height: 1.2em;
-				margin-top: 0.625em;
-				padding: 0.25em 0;
-				text-align: center;
 			}
 			h2 {
 				color: var(--color-black);

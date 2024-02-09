@@ -17,6 +17,20 @@
 </section>
 
 <style>
+	section {
+		align-items: center;
+		background-color: var(--color-primary);
+		color: var(--color-black);
+		display: flex;
+		flex-direction: row;
+		height: fit-content;
+		justify-content: space-around;
+		overflow-wrap: break-word;
+		padding-bottom: 0.2em;
+		text-align: center;
+		white-space: pre-wrap;
+		width: 100%;
+	}
 	section :first-child article,
 	section :last-child article {
 		width: 15%;
@@ -52,36 +66,27 @@
 		text-align: center;
 		vertical-align: center;
 	}
-	section a {
+	a {
 		background: var(--color-secondary);
 		border-radius: 0.375em;
 		border-style: solid;
 		border-width: 0;
-		height: 2em;
+		height: fit-content;
 		line-height: 1.2em;
-		margin-bottom: 1em;
+		/* margin-bottom: 1em;
 		margin-top: 1;
-		padding-bottom: 0.125em;
+		padding-bottom: 0.125em; */
+		padding: .25em;
 		text-align: center;
 		width: fit-content;
-	} 
-	section a:focus,
-	section a:hover {
-		transform: scale(1.2);
 	}
-	section {
-		align-items: center;
+
+	section article:first-of-type a {
 		background-color: var(--color-primary);
-		color: var(--color-black);
-		display: flex;
-		flex-direction: row;
-		height: fit-content;
-		justify-content: space-around;
-		overflow-wrap: break-word;
-		padding-bottom: 0.2em;
-		text-align: center;
-		white-space: pre-wrap;
-		width: 100%;
+	}
+	a:focus,
+	a:hover {
+		transform: scale(1.2);
 	}
 
 	h1 {

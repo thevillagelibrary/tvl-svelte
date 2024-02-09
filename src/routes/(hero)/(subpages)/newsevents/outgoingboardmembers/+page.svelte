@@ -102,3 +102,9 @@
 		<img class="picture" src={SueAndAllison} alt="Sue and Allison" />
 	</figure>
 </PageBody>
+
+<style>
+	figure:first-of-type {
+		border: none;
+	}
+</style>

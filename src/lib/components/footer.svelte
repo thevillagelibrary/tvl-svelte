@@ -1,10 +1,9 @@
 <script>
-  //TODO Move CSS to here
 import Facebook from '$lib/assets/images/Facebook.png';
 import InstagramIcon from '$lib/assets/images/Instagram.png';
 </script>
 
-
+<footer>
 <section>
   <address>
     Village Library, Inc.
@@ -41,7 +40,7 @@ import InstagramIcon from '$lib/assets/images/Instagram.png';
   <a href='mailto:thevillagelibrary.org@gmail.com'>
     Contact our Webmaster
   </a>
-</section>
+</section></footer>
 
 <style>    
   img {
@@ -50,5 +49,40 @@ import InstagramIcon from '$lib/assets/images/Instagram.png';
         margin-left: auto;
         margin-right: auto;
         width: 3em;
-    }
+    }			footer :nth-child(2) {
+				display: flex;
+				flex-direction: column;
+			}
+			footer a {
+				color: var(--color-white);
+			}
+			footer a {
+				font-size: var(--step--1);
+				margin: 0;
+			}
+			footer a:hover {
+				color: var(--color-link-hover);
+			}
+			footer address {
+				font-size: var(--step--1);
+			}
+			footer article {
+				display: flex;
+				flex-direction: row;
+				gap: 1em;
+				height: fit-content;
+			}
+			footer {
+				background-color: var(--color-tertiary);
+				color: var(--color-white);
+				display: flex;
+				flex-direction: row;
+				flex-shrink: 0;
+				font-size: var(--step--3);
+				justify-content: space-around;
+				line-height: 1.2em;
+				margin-top: 0.625em;
+				padding: 0.25em 0;
+				text-align: center;
+			}
 </style>
