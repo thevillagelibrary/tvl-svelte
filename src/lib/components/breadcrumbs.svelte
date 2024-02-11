@@ -14,10 +14,8 @@
 <div>
   {#if (pathParts.length > 2)}
     <section>
-      <span>
-        <a href={path}>{mainPage.name}</a>
-      </span>
-      &nbsp;&raquo;&nbsp;<span>{subPage.name}</span>
+      <a href={path}>{mainPage.name}</a>
+      {subPage.name}
     </section>
   {/if}
 </div>
@@ -33,4 +31,13 @@
     text-align: left;
     text-transform: capitalize;
   }
+
+
+a::after {
+  display: inline-block;
+  color: var(--color-black);
+  content: '>';
+  font-weight: bold;
+  padding: 0 .25em;
+}
 </style>
