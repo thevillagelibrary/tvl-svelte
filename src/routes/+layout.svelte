@@ -2,5 +2,7 @@
 	import BackToTop from '$lib/components/backtotop.svelte';
 </script>
 
-<slot />
-<BackToTop />
+
+<div id='top'></div>
+	<slot />
+	<BackToTop />

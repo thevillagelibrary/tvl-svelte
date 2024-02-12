@@ -5,7 +5,7 @@
 	$: path = $page.url.pathname;
 	afterNavigate(setFocus());
 	function setFocus(){
-		if (browser) document.getElementById('fauxbody').focus();
+		if (browser) document.getElementById('top').focus();
 	}
 	import { pages } from '$lib/constants';
 	const icons = {
