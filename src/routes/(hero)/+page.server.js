@@ -1,5 +1,5 @@
 import { HOME_URL } from "$lib/constants"
-export async function load(){
+export async function load({fetch}){
     let items;
     const res = await fetch(HOME_URL);
     if (!res.ok) {
